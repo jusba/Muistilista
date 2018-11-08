@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Thing</th>    
+    </tr>
+    {% for thing in things %}
+    <tr>
+      <td>{{ thing.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

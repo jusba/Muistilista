@@ -6,6 +6,11 @@
   </head>
 
   <body>
+
+    <ul>
+      <li><a href="{{ url_for('things_index') }}">List things to remember</a></li>
+      <li><a href="{{ url_for('things_form') }}">Add a new thing to remember</a></li>
+    </ul>
     {% block body %}
       <p>
         Content.
