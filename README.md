@@ -3,7 +3,7 @@
 [Heroku](https://muistilista-tsoha-jusba.herokuapp.com/)
 ## WIP
 
-[Käyttätapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
+[Käyttötapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
 [Tietokantakaaviohahmotelma](https://github.com/jusba/Muistilista/blob/master/documentation/database_schema.md)  
 [Ajankäyttö](https://github.com/jusba/Muistilista/blob/master/documentation/Time%20usage.md)  
 
