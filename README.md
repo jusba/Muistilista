@@ -3,9 +3,9 @@
 [Heroku](https://muistilista-tsoha-jusba.herokuapp.com/)
 ## WIP
 
-[Käyttätapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)
-[Tietokantakaaviohahmotelma](https://github.com/jusba/Muistilista/blob/master/documentation/database_schema.md)
-[Ajankäyttä](https://github.com/jusba/Muistilista/blob/master/documentation/Time%20usage.md)
+[Käyttätapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
+[Tietokantakaaviohahmotelma](https://github.com/jusba/Muistilista/blob/master/documentation/database_schema.md)  
+[Ajankäyttö](https://github.com/jusba/Muistilista/blob/master/documentation/Time%20usage.md)  
 
 Muistilista on sovellus, jonka avulla voidaan pitää tärkeitä asioita muistissa, koska usein ihmisillä on liikaa muistettavaa heidän muistikapasiteettiinsa nähden. Sovelluksen käyttäjät voivat luoda tunnuksen, jonka taakse käyttäjät voivat tallentaa omia muistettavia asioitaan. Käyttäjillä on myös salasana. Rekisteröityneet käyttäjät voivat lisätä, muokata ja poistaa omia muistettavia asioitaan. Käyttäjät voivat luoda tärkeysluokkia muistettaville asioille ja asettaa niitä. Tärkeysluokkia voidaan myös poistaa. Muistettavia asioita voidaan myös luokitella teemoittain asian mukaan. Käyttäjät voivat luoda uusia teemaluokkia, sekä poistaa niitä. Muistettaville asioille voidaan asettaa useita teemaluokkia ja teemaluokat voivat olla sisäkkäisiä.
 
