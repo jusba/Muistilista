@@ -1,5 +1,9 @@
-wip https://yuml.me/diagram/scruffy/class/draw
+![Database schema](https://github.com/jusba/Muistilista/blob/master/documentation/images/tietokantakaavio.png)
 
+
+Use:
+https://yuml.me/diagram/scruffy/class/draw
+Code:
 [Thing|(pk)id:Integer;(fk)account_id:Account;(fk)rank_id:Rank;date_created;date_modified;name]
 [Rank|(pk)id:Integer;(fk)account_id:Account;date_created;date_modified;name]
 [Theme|(pk)id:Integer;(fk)account_id:Account;date_created;date_modified;name]
