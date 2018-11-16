@@ -2,6 +2,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.things.models import Thing
+from application.things.forms import ThingForm
 
 #Showing list of things
 @app.route("/things", methods=["GET"])
@@ -11,9 +12,9 @@ def things_index():
 # Showing the page to make new things
 @app.route("/things/new/")
 def things_form():
-    return render_template("things/new.html")
+    return render_template("things/new.html", form = ThingForm())
 #Saving new thing with parameters from the new form
-@app.route("/things/", methods=["POST"])
+@app.route("/things", methods=["POST"])
 def things_create():
     t = Thing(request.form.get("name"))
     db.session().add(t)

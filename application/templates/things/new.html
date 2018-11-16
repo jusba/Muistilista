@@ -1,8 +1,28 @@
 {% extends "layout.html" %}
-  
-{% block body %}
-<form method="POST" action="{{ url_for('things_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Add a new thing to remember"/>
-</form>
-{% endblock %}
+
+  {% block body %}
+  <form method="POST" action="{{ url_for('things_create') }}">
+    <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+      </tr>
+      <tr>
+        <td>
+          {{ form.rank.label }}
+        </td>
+        <td>
+          {{ form.rank }}
+        </td>
+            </tr>
+      <tr>
+	<td colspan="2">
+	  <input type="submit" value="Add a new thing to remember"/>
+	</td>
+      </tr>
+  </form>
+  {% endblock %}
