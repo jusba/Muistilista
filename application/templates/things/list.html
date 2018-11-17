@@ -10,6 +10,17 @@
     <tr>
       <td>{{ thing.name }}</td>
       <td>{{ thing.rank }}</td>
+      <form method="POST" action="{{ url_for('thing_change_rank',thing_id=thing.id) }}">
+        <td>
+          {{ "" }}
+        </td>
+        <td>
+          {{ form.rank }}
+        </td>
+        <td colspan="2">
+          <input type="submit" value="Edit rank"/>
+        </td>
+      </form>
     </tr>
     {% endfor %}
   </table>

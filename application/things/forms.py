@@ -6,3 +6,9 @@ class ThingForm(FlaskForm):
     rank = StringField("Rank")
     class Meta:
         csrf = False
+
+class RankForm(FlaskForm):
+    
+    rank = StringField("Rank")
+    class Meta:
+        csrf = False
