@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import StringField, validators
 
 class ThingForm(FlaskForm):
-    name = StringField("Name")
+    name = StringField("Name" ,[validators.Length(min=2)])
     rank = StringField("Rank")
     class Meta:
         csrf = False
