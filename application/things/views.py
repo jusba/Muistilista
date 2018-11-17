@@ -37,6 +37,8 @@ def things_create():
 @login_required
 def thing_change_rank(thing_id):
     form = RankForm()
+    if not form.validate():
+        return render_template("things/list.html", form = form)
     t = Thing.query.get(thing_id)
     t.rank = form.rank.data
     t.account_id = current_user.id
