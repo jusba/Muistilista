@@ -16,7 +16,7 @@ def things_form():
 #Saving new thing with parameters from the new form
 @app.route("/things", methods=["POST"])
 def things_create():
-    t = Thing(request.form.get("name"))
+    t = Thing(request.form.get("name"), request.form.get("rank"))
     db.session().add(t)
     db.session().commit()
   
