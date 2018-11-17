@@ -9,8 +9,9 @@ from flask_login import login_required, current_user
 
 #Showing list of things
 @app.route("/things", methods=["GET"])
+@login_required
 def things_index():
-    return render_template("things/list.html", things = Thing.query.all(),form = RankForm())
+    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(),form = RankForm())
 
 # Showing the page to make new things
 @app.route("/things/new/")
