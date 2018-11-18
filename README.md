@@ -12,7 +12,7 @@ Herokussa luotu tunnus:
 Omien tunnusten luonti vaikuttaa toimivan myös herokussa.
 
 #### Tämänhetkisiä ongelmia
-- Jokaisen sovelluksessa luodon käyttäjän nimi on testi, todennäköisesti tulevaisuudessa nimi tulee olemaan sama kuin käyttäjänimi
+- Jokaisen sovelluksessa luodun käyttäjän nimi on testi, todennäköisesti tulevaisuudessa nimi tulee olemaan sama kuin käyttäjänimi.
 - Herokussa muistettavien asioiden listaus pyörii, kun niiden tärkeyskenttää vaihdetaan.
 
 
