@@ -41,16 +41,24 @@ def thing_change_rank(thing_id):
         return render_template("things/list.html", form = form)
     t = Thing.query.get(thing_id)
     t.rank = form.rank.data
-    t.account_id = current_user.id
+    print("testiii")
+    
     db.session().commit()
     return redirect(url_for("things_index")) 
-#Editing thing
+#Delete thing
 @app.route("/things/<thing_id>/",methods=["GET", "POST"])
 @login_required
 def thing_delete(thing_id):
     Thing.query.filter(Thing.id == thing_id).delete()
     db.session().commit()
     return redirect(url_for("things_index")) 
+#Showing one thing
+@app.route("/things/thing/<thing_id>/",methods=["GET"])
+@login_required
+def thing_show(thing_id):
+    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all())
+
+
 
     
 

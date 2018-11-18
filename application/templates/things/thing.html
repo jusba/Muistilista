@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <table>
+        {% for thing in things %}
+    <tr>
+      <th>Thing to remember</th> 
+      <th>Rank</th>  
+      <th>Thing id</th>
+      <th>Thing account id</th>
+      <th>Thing date created</th>
+      <th>Thing date modified</th>
+
+      
+      
+    </tr>
+    
+    <tr>
+      <td>{{ thing.name }}</td>
+      <td>{{ thing.rank }}</td>
+      <td>{{ thing.id }}</td>
+      <td>{{ thing.account_id }}</td>
+      <td>{{ thing.date_created }}</td>
+      <td>{{ thing.date_modified }}</td>
+     
+        
+       
+      
+    </tr>
+    {% endfor %} 
+    
+  </table>
+  
+{% endblock %}

@@ -32,6 +32,11 @@
         <td colspan="2">
           <input type="submit" value="Edit rank"/>
         </td>
+        </form>
+        <td colspan="2">
+            <a href="{{ url_for('thing_show',thing_id=thing.id) }}">Tarkastele</a>
+        </td>
+
         <td colspan="2">
       <a href="{{ url_for('thing_delete',thing_id=thing.id) }}">Delete</a>
         </td>
