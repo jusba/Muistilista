@@ -1,6 +1,21 @@
 # Muistilista
 
 [Heroku](https://muistilista-tsoha-jusba.herokuapp.com/)
+#### Käyttäjätunnukset herokussa:
+- Tunnus: hello
+- Salasana: world
+
+Herokussa luotu tunnus:
+- Tunnus: eka
+- Salasana: eka
+
+Omien tunnusten luonti vaikuttaa toimivan myös herokussa.
+
+#### Tämänhetkisiä ongelmia
+- Jokaisen sovelluksessa luodon käyttäjän nimi on testi, todennäköisesti tulevaisuudessa nimi tulee olemaan sama kuin käyttäjänimi
+- Herokussa muistettavien asioiden listaus pyörii, kun niiden tärkeyskenttää vaihdetaan.
+
+
 ## WIP
 
 [Käyttötapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
