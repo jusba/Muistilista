@@ -44,5 +44,13 @@ def thing_change_rank(thing_id):
     t.account_id = current_user.id
     db.session().commit()
     return redirect(url_for("things_index")) 
+#Editing thing
+@app.route("/things/<thing_id>/",methods=["GET", "POST"])
+@login_required
+def thing_delete(thing_id):
+    Thing.query.filter(Thing.id == thing_id).delete()
+    db.session().commit()
+    return redirect(url_for("things_index")) 
+
     
 
