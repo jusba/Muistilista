@@ -37,7 +37,7 @@ def account_create():
     form = LoginForm(request.form)
     if not form.validate():
         return render_template("auth/new.html", form = form)
-    a = User("testi", form.username.data, form.password.data)
+    a = User(form.username.data, form.username.data, form.password.data)
     db.session().add(a)
     db.session().commit()
     return render_template("index.html")
