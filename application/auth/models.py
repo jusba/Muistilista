@@ -11,6 +11,7 @@ class User(Base):
     password = db.Column(db.String(144), nullable=False)
 
     things = db.relationship("Thing", backref='account', lazy=True)
+    ranks = db.relationship("Rank", backref='account', lazy=True)
     def __init__(self, name, username, password):
         self.name = name
         self.username = username

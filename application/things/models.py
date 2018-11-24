@@ -5,13 +5,15 @@ class Thing(Base):
     
 
     name = db.Column(db.String(144), nullable=False)
-    rank = db.Column(db.String(144), nullable=False)
+    description = db.Column(db.String(400), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
+    rank_id = db.Column(db.Integer, db.ForeignKey('rank.id'),
+                           nullable=False)                       
 
 
-    def __init__(self, name, rank):
+    def __init__(self, name, description):
         self.name = name
-        self.rank = rank
+        self.description = description
 

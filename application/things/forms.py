@@ -3,12 +3,12 @@ from wtforms import StringField, validators
 
 class ThingForm(FlaskForm):
     name = StringField("Name" ,[validators.Length(min=2)])
-    rank = StringField("Rank",[validators.Length(max=20)])
+    description = StringField("Description",[validators.Length(max=400)])
     class Meta:
         csrf = False
 
-class RankForm(FlaskForm):
+class DescriptionForm(FlaskForm):
     
-    rank = StringField("Rank",[validators.Length(max=20)])
+    description = StringField("Description",[validators.Length(max=400)])
     class Meta:
         csrf = False

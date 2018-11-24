@@ -5,7 +5,7 @@
   <h1>
       
     
-      {% for error in form.rank.errors %}
+      {% for error in form.description.errors %}
      <li>{{ error }}</li>
      {% endfor %}
      
@@ -14,23 +14,23 @@
   <table>
     <tr>
       <th>Thing to remember</th> 
-      <th>Rank</th>  
+      <th>Description</th>  
       
       
     </tr>
     {% for thing in things %}
     <tr>
       <td>{{ thing.name }}</td>
-      <td>{{ thing.rank }}</td>
-      <form method="POST" action="{{ url_for('thing_change_rank',thing_id=thing.id) }}">
+      <td>{{ thing.description }}</td>
+      <form method="POST" action="{{ url_for('thing_change_description',thing_id=thing.id) }}">
         
         <td>
-          {{ form.rank }}
+          {{ form.description }}
         </td>
 
         
         <td colspan="2">
-          <input type="submit" value="Edit rank"/>
+          <input type="submit" value="Edit description"/>
         </td>
         </form>
         <td colspan="2">

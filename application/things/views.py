@@ -3,7 +3,7 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.things.models import Thing
 from application.things.forms import ThingForm
-from application.things.forms import RankForm
+from application.things.forms import DescriptionForm
 from flask_login import login_required, current_user
 
 
@@ -11,7 +11,7 @@ from flask_login import login_required, current_user
 @app.route("/things", methods=["GET"])
 @login_required
 def things_index():
-    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(),form = RankForm())
+    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(),form = DescriptionForm())
 
 # Showing the page to make new things
 @app.route("/things/new/")
@@ -26,22 +26,22 @@ def things_create():
     if not form.validate():
         return render_template("things/new.html", form = form)
 
-    t = Thing(form.name.data, form.rank.data)
+    t = Thing(form.name.data, form.description.data)
     t.account_id = current_user.id
     db.session().add(t)
     db.session().commit()
   
     return redirect(url_for("things_index")) 
-#Changing thing rank
+#Changing thing description
 @app.route("/things/<thing_id>/",methods=["POST"])
 @login_required
-def thing_change_rank(thing_id):
-    form = RankForm()
+def thing_change_description(thing_id):
+    form = DescriptionForm()
     if not form.validate():
         return render_template("things/list.html", form = form)
     t = Thing.query.get(thing_id)
-    t.rank = form.rank.data
-    print("testiii")
+    t.description = form.description.data
+    
     
     db.session().commit()
     return redirect(url_for("things_index")) 

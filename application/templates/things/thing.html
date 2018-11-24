@@ -6,7 +6,7 @@
         {% for thing in things %}
     <tr>
       <th>Thing to remember</th> 
-      <th>Rank</th>  
+      <th>Description</th>  
       <th>Thing id</th>
       <th>Thing account id</th>
       <th>Thing date created</th>
@@ -18,7 +18,7 @@
     
     <tr>
       <td>{{ thing.name }}</td>
-      <td>{{ thing.rank }}</td>
+      <td>{{ thing.description }}</td>
       <td>{{ thing.id }}</td>
       <td>{{ thing.account_id }}</td>
       <td>{{ thing.date_created }}</td>
