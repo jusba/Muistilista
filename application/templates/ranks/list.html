@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  
+  <table>
+    <tr>
+      <th>Rank</th> 
+      
+    </tr>
+    {% for rank in ranks %}
+    <tr>
+      <td>{{ rank.name }}</td>
+
+        <td colspan="2">
+      <a href="{{ url_for('rank_delete',rank_id=rank.id) }}">Delete</a>
+        </td>
+      
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

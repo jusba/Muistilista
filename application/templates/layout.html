@@ -14,9 +14,20 @@
     {% else %}
     <a href="{{ url_for('auth_login') }}">Kirjaudu/Luo tunnus</a>
     {% endif %}
+    <p>
+      Things to remember
+    </p>
     <ul>
       <li><a href="{{ url_for('things_index') }}">List things to remember</a></li>
       <li><a href="{{ url_for('things_form') }}">Add a new thing to remember</a></li>
+    
+    </ul>
+    <p>
+      Ranks
+    </p>
+    <ul>
+      <li><a href="{{ url_for('ranks_index') }}">List ranks</a></li>
+      <li><a href="{{ url_for('ranks_form') }}">Add a new rank</a></li>
     </ul>
     {% block body %}
       <p>

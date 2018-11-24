@@ -28,3 +28,10 @@ def ranks_create():
     db.session().commit()
   
     return redirect(url_for("ranks_index"))     
+#Delete rank
+@app.route("/ranks/<rank_id>/",methods=["GET", "POST"])
+@login_required
+def rank_delete(rank_id):
+    Rank.query.filter(Rank.id == rank_id).delete()
+    db.session().commit()
+    return redirect(url_for("ranks_index")) 
