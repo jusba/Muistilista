@@ -17,19 +17,19 @@ class Rank(Base):
         self.name = name
 
      
-def get_ranks():
-    print("testia")
-    stmt = text("SELECT Rank.name FROM Rank"
-                    " GROUP BY Rank.name")
+# def get_ranks():
+#     print("testia")
+#     stmt = text("SELECT Rank.name FROM Rank"
+#                     " GROUP BY Rank.name")
               
-    res = db.engine.execute(stmt)
+#     res = db.engine.execute(stmt)
     
 
-    response = []
-    number = 0
-    for row in res:
-        values = (number, row)
-        response.append(values)
-        number = number + 1
-    print("toimiiko?")
-    return response
+#     response = []
+#     number = 0
+#     for row in res:
+#         values = (number, row)
+#         response.append(values)
+#         number = number + 1
+#     print("toimiiko?")
+#     return response

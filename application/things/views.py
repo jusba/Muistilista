@@ -25,22 +25,22 @@ def things_form():
 def things_create():
     
     form =  ThingForm(request.form)
-    print("ekointippi")
+    ###Jostain syystä estää uusien muistettavien asioiden luonnin
     # try:
     #     if not form.validate():
     #         return render_template("things/new.html", form = form)
     # except Exception as e:
     #     print(str(e))
     
-    print("ekatippi")
-    t = Thing(form.name.data, form.description.data)
-    ranks = Rank.query.filter(Rank.name == form.rank.data).all()
-    rank = 0
-    for r in ranks:
-        rank = r.id
-    print("tokatippi")
     
-    t.rank_id = rank
+    t = Thing(form.name.data, form.description.data)
+    # ranks = Rank.query.filter(Rank.name == form.rank.data).all()
+    # rank = 0
+    # for r in ranks:
+    #     rank = r.id
+    
+    
+    t.rank_id = 0
     t.account_id = current_user.id
     db.session().add(t)
     try:
