@@ -5,6 +5,7 @@ from application.things.models import Thing
 from application.things.forms import ThingForm
 from application.things.forms import DescriptionForm
 from flask_login import login_required, current_user
+from application.ranks.models import Rank
 
 
 #Showing list of things
@@ -22,14 +23,32 @@ def things_form():
 @app.route("/things", methods=["POST"])
 @login_required
 def things_create():
+    
     form =  ThingForm(request.form)
-    if not form.validate():
-        return render_template("things/new.html", form = form)
-
+    print("ekointippi")
+    # try:
+    #     if not form.validate():
+    #         return render_template("things/new.html", form = form)
+    # except Exception as e:
+    #     print(str(e))
+    
+    print("ekatippi")
     t = Thing(form.name.data, form.description.data)
+    ranks = Rank.query.filter(Rank.name == form.rank.data).all()
+    rank = 0
+    for r in ranks:
+        rank = r.id
+    print("tokatippi")
+    
+    t.rank_id = rank
     t.account_id = current_user.id
     db.session().add(t)
-    db.session().commit()
+    try:
+        db.session().commit()
+    except Exception as e:
+        
+        print(str(e))
+        
   
     return redirect(url_for("things_index")) 
 #Changing thing description
@@ -57,6 +76,7 @@ def thing_delete(thing_id):
 @login_required
 def thing_show(thing_id):
     return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all())
+
 
 
 
