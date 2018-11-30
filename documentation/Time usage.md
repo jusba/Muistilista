@@ -10,6 +10,6 @@
 |16.11.18|1h|Yritystä säheltää toista lomaketta sivulle |
 |17.11.18|10h|Kirjautumista, crudia, muuta kivaa|
 |18.11.18|2h|Yksittäisten asioiden listaus, rankin vaihdon korjaus, heroku toimvuuden palautus, readme päivitys |
-||| |
+|24.11.18|8h|Rankkien luonti, "Monimutkainen" tietokantakysely, ulkomuodon säätö, mikään ei toimi tilanteeseen päätyminen|
 ||| |
 ||| |
