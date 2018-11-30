@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, validators
-from application.ranks.models import Rank, get_ranks
+from application.ranks.models import Rank
 from flask_login import current_user
 from application import db
 

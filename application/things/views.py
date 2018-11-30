@@ -5,7 +5,7 @@ from application.things.models import Thing
 from application.things.forms import ThingForm
 from application.things.forms import DescriptionForm
 from flask_login import login_required, current_user
-from application.ranks.models import Rank, get_ranks
+from application.ranks.models import Rank
 from sqlalchemy.sql import text
 import os.path
 from pathlib import Path
@@ -22,24 +22,17 @@ def things_index():
 @login_required
 def things_form():
     formC = ThingForm()
-    stmt = text("SELECT Rank.name FROM Rank"
-                    " GROUP BY Rank.name")
-
     
-    data_folder = Path("application/")
-
-    file_to_open = data_folder / "things.db"
-    if os.path.isfile(file_to_open):
-        res = db.engine.execute(stmt)
+    res = Rank.query.all()
     
 
-        response = []
+    response = []
     
-        for row in res:
+    for row in res:
             
         
-            values = (row[0], row[0])
-            response.append(values)
+        values = (row.name, row.name)
+        response.append(values)
     formC.rank.choices = response
     return render_template("things/new.html", form = formC)
 #Saving new thing with parameters from the new form

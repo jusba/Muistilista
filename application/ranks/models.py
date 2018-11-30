@@ -19,26 +19,4 @@ class Rank(Base):
         self.name = name
 
   
-def get_ranks():
-    
-    stmt = text("SELECT Rank.name FROM Rank"
-                    " GROUP BY Rank.name")
 
-    
-    data_folder = Path("application/")
-
-    file_to_open = data_folder / "things.db"
-    if os.path.isfile(file_to_open):
-        res = db.engine.execute(stmt)
-    
-
-        response = []
-    
-        for row in res:
-            
-        
-            values = (row[0], row[0])
-            response.append(values)
-        
-    
-            return response
