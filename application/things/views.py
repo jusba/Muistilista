@@ -41,7 +41,7 @@ def things_form():
 def things_create():
     
     form =  ThingForm(request.form)
-    
+    ### Estää uusien thingien luonnin jostain syystä
     # if not form.validate():
     #     return render_template("things/new.html", form = form)
     
