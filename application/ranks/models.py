@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 from sqlalchemy.sql import text
+import os.path
+from pathlib import Path
 
 class Rank(Base):
     
@@ -21,18 +23,22 @@ def get_ranks():
     
     stmt = text("SELECT Rank.name FROM Rank"
                     " GROUP BY Rank.name")
-              
-    res = db.engine.execute(stmt)
+
+    
+    data_folder = Path("application/")
+
+    file_to_open = data_folder / "things.db"
+    if os.path.isfile(file_to_open):
+        res = db.engine.execute(stmt)
     
 
-    response = []
+        response = []
     
-    for row in res:
-        print("jeesus" , type(row[0]))
-        print("keesus", row[0])
+        for row in res:
+            
         
-        values = (row[0], row[0])
-        response.append(values)
+            values = (row[0], row[0])
+            response.append(values)
         
-    print("toimiiko?")
-    return response
+    
+            return response
