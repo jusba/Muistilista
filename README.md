@@ -1,6 +1,5 @@
 # Tämänhetkisiä ongelmia
-- Sovellus ei suostu luomaan tietokantoja eikä käynnistymään, jos yritän liittää luotuun thingiin rankin (kts. kommentoitua koodia thing/views, thing/form, rank/models)
-- Jos tietokannat on luoto aikaisemmin, eri rank vaihtoehdot näkyvät thingejä lisättäess, mutta en saa niitä liitettyä thingeihin
+
 - Sovellus ei suostu lisäämään thingejä ollenkaan, jos niiden validointi on päällä (kts. kommentoitua koodia thing/views)
 - Herokussa thingejä ei pysty lisäämään ollenkaan tietokantaan, paikkallisesti toimii (miksi??????)
 - Herokun toimivuus muutenkin vähän epävarmaa
