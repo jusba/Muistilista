@@ -48,12 +48,11 @@ def things_form():
 def things_create():
     
     form =  ThingForm(request.form)
-    ###Jostain syystä estää uusien muistettavien asioiden luonnin
-    # try:
-    #     if not form.validate():
-    #         return render_template("things/new.html", form = form)
-    # except Exception as e:
-    #     print(str(e))
+    
+    # if not form.validate():
+    #     return render_template("things/new.html", form = form)
+    
+   
     
     
     t = Thing(form.name.data, form.description.data)
