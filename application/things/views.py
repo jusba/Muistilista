@@ -34,13 +34,12 @@ def things_create():
     
     
     t = Thing(form.name.data, form.description.data)
-    # ranks = Rank.query.filter(Rank.name == form.rank.data).all()
-    # rank = 0
-    # for r in ranks:
-    #     rank = r.id
+    rank = Rank.query.filter_by(name = form.rank.data).first()
+    print("jeesus siunaa", type(rank))
+     
     
     
-    t.rank_id = 0
+    t.rank_id = rank.id
     t.account_id = current_user.id
     db.session().add(t)
     try:
