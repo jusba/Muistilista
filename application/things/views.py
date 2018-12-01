@@ -23,7 +23,7 @@ def things_index():
 def things_form():
     formC = ThingForm()
     
-    res = Rank.query.all()
+    res = Rank.query.filter(Rank.account_id == current_user.id).all()
     
 
     response = []
@@ -95,7 +95,7 @@ def thing_delete(thing_id):
 def thing_show(thing_id):
     formC = DescriptionForm()
     
-    res = Rank.query.all()
+    res = Rank.query.filter(Rank.account_id == current_user.id).all()
     
 
     response = []
