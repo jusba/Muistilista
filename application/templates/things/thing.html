@@ -4,14 +4,24 @@
 
   <table>
         {% for thing in things %}
+
+        <style>
+            td {
+                
+                
+                padding-bottom: 50px;
+                
+            }
+            
+        </style>
     <tr>
-      <th>Thing to remember</th> 
-      <th>Description</th>  
-      <th>Thing id</th>
-      <th>Thing rank id</th>
-      <th>Thing account id</th>
-      <th>Thing date created</th>
-      <th>Thing date modified</th>
+      <th>Muistettava asia</th> 
+      <th>Kuvaus</th>  
+      <th>Asian id</th>
+      <th>Asian tärkeyden id</th>
+      <th>Asian tekijän id</th>
+      <th>Asian luontiajankohta</th>
+      <th>Asian muokkausajankohta</th>
 
       
       
@@ -25,13 +35,53 @@
       <td>{{ thing.account_id }}</td>
       <td>{{ thing.date_created }}</td>
       <td>{{ thing.date_modified }}</td>
-     
-        
+
+    </tr>
+    </table>
+      <h3>Muokkaa tietoja</h3>
+      <form method="POST" action="{{ url_for('thing_change_description',thing_id=thing.id) }}">
+          <td>
+              {{ form.description.label }}
+            </td>
+          <td>
+              {{ form.description(class="form-control" , placeholder="Osta kanaa", cols="5", rows="5")}}
+          </td>
+          <td>
+              <ul>
+                {% for error in form.description.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+          </td>
+
+          <td>
+              {{ form.rank.label }}
+            </td>
+            <td>
+              {{ form.rank(class="form-control") }}
+            </td>
+            <td>
+              <ul>
+                {% for error in form.rank.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+  
+          
+          <td colspan="2">
+              <input class = "btn btn-primary" type="submit" value="Muokkaa kuvausta"/>
+          </td>
+      </form> 
+    
+      {% for error in form.description.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
        
       
-    </tr>
+    
     {% endfor %} 
     
-  </table>
+  
   
 {% endblock %}

@@ -5,10 +5,10 @@
     <table>
       <tr>
           <td>
-            {{ form.name.label }}
+            {{ form.name.label() }}
           </td>
           <td>
-            {{ form.name }}
+            {{ form.name(class="form-control" , placeholder="Kaupassa käynti") }}
           </td>
           <td>
             <ul>
@@ -23,7 +23,7 @@
           {{ form.description.label }}
         </td>
         <td>
-          {{ form.description }}
+          {{ form.description(class="form-control" , placeholder="Osta kanaa", cols="15", rows="10")}}
         </td>
 
         <td>
@@ -39,12 +39,19 @@
           {{ form.rank.label }}
         </td>
         <td>
-          {{ form.rank }}
+          {{ form.rank(class="form-control") }}
+        </td>
+        <td>
+          <ul>
+            {% for error in form.rank.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
         </td>
       </tr>
       <tr>
 	<td colspan="2">
-	  <input type="submit" value="Add a new thing to remember"/>
+	  <input class = "btn btn-primary" type="submit" value="Add a new thing to remember"/>
 	</td>
       </tr>
   </form>

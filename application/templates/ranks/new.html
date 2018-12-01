@@ -8,7 +8,7 @@
             {{ form.name.label }}
           </td>
           <td>
-            {{ form.name }}
+            {{ form.name(class="form-control" , placeholder="Kiireellinen") }}
           </td>
           <td>
             <ul>
@@ -21,7 +21,7 @@
       
       <tr>
 	<td colspan="2">
-	  <input type="submit" value="Add a new rank "/>
+	  <input class = "btn btn-primary" type="submit" value="Add a new rank "/>
 	</td>
       </tr>
   </form>

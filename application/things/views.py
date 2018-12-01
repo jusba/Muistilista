@@ -29,9 +29,9 @@ def things_form():
     response = []
     
     for row in res:
-            
+        rowName = str(row.name)    
         
-        values = (row.name, row.name)
+        values = (rowName, rowName)
         response.append(values)
     formC.rank.choices = response
     return render_template("things/new.html", form = formC)
@@ -42,15 +42,16 @@ def things_create():
     
     form =  ThingForm(request.form)
     ### Estää uusien thingien luonnin jostain syystä
-    # if not form.validate():
-    #     return render_template("things/new.html", form = form)
+    #if form.is_submitted():
+    #    if not form.validate():
+    #        return render_template("things/new.html", form = form)
     
    
     
     
     t = Thing(form.name.data, form.description.data)
     rank = Rank.query.filter_by(name = form.rank.data).first()
-    print("jeesus siunaa", type)
+    
      
     
     
@@ -69,12 +70,15 @@ def things_create():
 @app.route("/things/<thing_id>/",methods=["POST"])
 @login_required
 def thing_change_description(thing_id):
+    
     form = DescriptionForm()
-    if not form.validate():
-        return render_template("things/list.html", form = form)
+    #Estää muokkauksen jostain syystä
+    #if not form.validate():
+        #return render_template("things/list.html", form = form)
     t = Thing.query.get(thing_id)
     t.description = form.description.data
-    
+    rank = Rank.query.filter_by(name = form.rank.data).first()
+    t.rank_id = rank.id
     
     db.session().commit()
     return redirect(url_for("things_index")) 
@@ -89,7 +93,22 @@ def thing_delete(thing_id):
 @app.route("/things/thing/<thing_id>/",methods=["GET"])
 @login_required
 def thing_show(thing_id):
-    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all())
+    formC = DescriptionForm()
+    
+    res = Rank.query.all()
+    
+
+    response = []
+    
+    for row in res:
+        rowName = str(row.name)    
+        
+        values = (rowName, rowName)
+        response.append(values)
+    formC.rank.choices = response
+
+    form = formC
+    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all(), form = form)
 
 
 

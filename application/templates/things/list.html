@@ -12,33 +12,41 @@
       
     </h1>
   <table>
+      <style>
+          td {
+              
+              padding-right: 30px;
+              
+          }
+          th {
+              
+              padding-right: 30px;
+              
+          }
+      </style>
     <tr>
-      <th>Thing to remember</th> 
-      <th>Description</th>  
-      
+      <th>Muistettava asia</th> 
+      <th>Kuvaus</th>  
+      <style>
+          td {
+              
+              padding-right: 30px;
+              
+          }
+          </style>
       
     </tr>
     {% for thing in things %}
     <tr>
-      <td>{{ thing.name }}</td>
+      <td>{{ thing.name }} </td>
       <td>{{ thing.description }}</td>
-      <form method="POST" action="{{ url_for('thing_change_description',thing_id=thing.id) }}">
-        
-        <td>
-          {{ form.description }}
-        </td>
-
-        
-        <td colspan="2">
-          <input type="submit" value="Edit description"/>
-        </td>
-        </form>
+      
         <td colspan="2">
             <a href="{{ url_for('thing_show',thing_id=thing.id) }}">Tarkastele</a>
         </td>
 
         <td colspan="2">
-      <a href="{{ url_for('thing_delete',thing_id=thing.id) }}">Delete</a>
+      <a href= "{{ url_for('thing_delete',thing_id=thing.id) }}" style ="color: #000; background: #f00" >Poista</a>
         </td>
       
     </tr>
