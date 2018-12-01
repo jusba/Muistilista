@@ -17,6 +17,7 @@
     <tr>
       <th>Muistettava asia</th> 
       <th>Kuvaus</th>  
+      <th>Tärkeys</th> 
       <th>Asian id</th>
       <th>Asian tärkeyden id</th>
       <th>Asian tekijän id</th>
@@ -30,6 +31,11 @@
     <tr>
       <td>{{ thing.name }}</td>
       <td>{{ thing.description }}</td>
+      {% for rank in ranks %}
+      {% if thing.rank_id == rank.id %}
+      <td >{{rank.name}}</td>
+      {% endif %}
+      {% endfor %}
       <td>{{ thing.id }}</td>
       <td>{{ thing.rank_id }}</td>
       <td>{{ thing.account_id }}</td>

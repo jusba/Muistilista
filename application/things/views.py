@@ -15,7 +15,7 @@ from pathlib import Path
 @app.route("/things", methods=["GET"])
 @login_required
 def things_index():
-    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(),form = DescriptionForm())
+    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(), ranks = Rank.query.filter(Rank.account_id == current_user.id).all(),form = DescriptionForm())
 
 # Showing the page to make new things
 @app.route("/things/new/")
@@ -108,7 +108,7 @@ def thing_show(thing_id):
     formC.rank.choices = response
 
     form = formC
-    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all(), form = form)
+    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all(),ranks = Rank.query.filter(Rank.account_id == current_user.id).all(), form = form)
 
 
 

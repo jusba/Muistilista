@@ -27,6 +27,7 @@
     <tr>
       <th>Muistettava asia</th> 
       <th>Kuvaus</th>  
+      <th>Tärkeys</th>
       <style>
           td {
               
@@ -40,6 +41,13 @@
     <tr>
       <td>{{ thing.name }} </td>
       <td>{{ thing.description }}</td>
+      
+      
+      {% for rank in ranks %}
+      {% if thing.rank_id == rank.id %}
+      <td >{{rank.name}}</td>
+      {% endif %}
+      {% endfor %}
       
         <td colspan="2">
             <a href="{{ url_for('thing_show',thing_id=thing.id) }}">Tarkastele</a>
