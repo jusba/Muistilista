@@ -1,4 +1,5 @@
 # Tämänhetkisiä ongelmia
+- Muistettavien asioiden lisäyksen validointi on pois päältä. Joku rankit tarjoavassa selectfieldissä estää validoinnin läpäisyn, vaikka itse selectfieldissä ei olisi validaattoreita. Korjaan kun keksin ratkaisun.
 
 
 # Muistilista
@@ -21,6 +22,7 @@ Omien tunnusten luonti vaikuttaa toimivan myös herokussa.
 [Käyttötapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
 [Tietokantakaaviohahmotelma](https://github.com/jusba/Muistilista/blob/master/documentation/database_schema.md)  
 [Ajankäyttö](https://github.com/jusba/Muistilista/blob/master/documentation/Time%20usage.md)  
+[Alustava asennusohje](https://github.com/jusba/Muistilista/blob/master/documentation/Asennusohje.md)
 
 Muistilista on sovellus, jonka avulla voidaan pitää tärkeitä asioita muistissa, koska usein ihmisillä on liikaa muistettavaa heidän muistikapasiteettiinsa nähden. Sovelluksen käyttäjät voivat luoda tunnuksen, jonka taakse käyttäjät voivat tallentaa omia muistettavia asioitaan. Käyttäjillä on myös salasana. Rekisteröityneet käyttäjät voivat lisätä, muokata ja poistaa omia muistettavia asioitaan. Käyttäjät voivat luoda tärkeysluokkia muistettaville asioille ja asettaa niitä. Tärkeysluokkia voidaan myös poistaa. Muistettavia asioita voidaan myös luokitella teemoittain asian mukaan. Käyttäjät voivat luoda uusia teemaluokkia, sekä poistaa niitä. Muistettaville asioille voidaan asettaa useita teemaluokkia ja teemaluokat voivat olla sisäkkäisiä.
 
