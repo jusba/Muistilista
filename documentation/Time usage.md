@@ -13,3 +13,4 @@
 |24.11.18|8h|Rankkien luonti, "Monimutkainen" tietokantakysely, ulkomuodon säätö, mikään ei toimi tilanteeseen päätyminen|
 |30.11.18|7h|Selectfield toimii, heroku toimii,tietokannat taitaa toimia |
 |1.12.18|7h|templatejen muokkausta, ulkoasun parantamista, rankin muokkaus mahdollista, rank näkyy listauksessa ja tarkastelussa, alustavat käyttö ja asennusohjeet |
+|7.12.18|3h|Validointi vihdoin toimii|
