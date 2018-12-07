@@ -41,10 +41,11 @@ def things_form():
 def things_create():
     
     form =  ThingForm(request.form)
-    ### Estää uusien thingien luonnin jostain syystä
-    #if form.is_submitted():
-    #    if not form.validate():
-    #        return render_template("things/new.html", form = form)
+    
+    
+    if not form.validate_on_submit():
+        
+        return render_template("things/list.html", form = form)
     
    
     
@@ -72,9 +73,9 @@ def things_create():
 def thing_change_description(thing_id):
     
     form = DescriptionForm()
-    #Estää muokkauksen jostain syystä
-    #if not form.validate():
-        #return render_template("things/list.html", form = form)
+    
+    if not form.validate_on_submit():
+        return render_template("things/list.html", form = form)
     t = Thing.query.get(thing_id)
     t.description = form.description.data
     rank = Rank.query.filter_by(name = form.rank.data).first()
