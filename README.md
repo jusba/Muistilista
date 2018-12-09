@@ -1,5 +1,4 @@
 # Tämänhetkisiä ongelmia
-- Muistettavien asioiden lisäyksen validointi on pois päältä. Joku rankit tarjoavassa selectfieldissä estää validoinnin läpäisyn, vaikka itse selectfieldissä ei olisi validaattoreita. Korjaan kun keksin ratkaisun.
 
 
 # Muistilista
