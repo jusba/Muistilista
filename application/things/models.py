@@ -20,8 +20,12 @@ class Thing(Base):
         self.description = description
 
 class ThingTheme(Base):
-    id = db.Column(db.Integer, primary_key=True)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
+                           nullable=False)
     thing_id = db.Column(db.Integer, db.ForeignKey('thing.id'),
                            nullable=False)
     theme_id = db.Column(db.Integer, db.ForeignKey('theme.id'),
                            nullable=False)
+    def __init__(self, thing_id, theme_id):
+        self.thing_id = thing_id
+        self.theme_id = theme_id

@@ -28,6 +28,7 @@
       <th>Muistettava asia</th> 
       <th>Kuvaus</th>  
       <th>Tärkeys</th>
+      <th>Teemat</th>
       <style>
           td {
               
@@ -47,6 +48,16 @@
       {% if thing.rank_id == rank.id %}
       <td >{{rank.name}}</td>
       {% endif %}
+      {% endfor %}
+
+      {% for thingtheme in thingthemes %}
+        {% if thingtheme.thing_id == thing.id %}
+            {% for theme in themes %}
+                {% if thingtheme.theme_id == theme.id %}
+                    <td >{{theme.name}}</td>
+                {% endif %}    
+            {% endfor %}
+        {% endif %}
       {% endfor %}
       
         <td colspan="2">

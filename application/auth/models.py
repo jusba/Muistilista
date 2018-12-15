@@ -12,6 +12,7 @@ class User(Base):
 
     things = db.relationship("Thing", backref='account', lazy=True)
     ranks = db.relationship("Rank", backref='account', lazy=True)
+    thingthemes = db.relationship("ThingTheme", backref='account', lazy=True)
     def __init__(self, name, username, password):
         self.name = name
         self.username = username

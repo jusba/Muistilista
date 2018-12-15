@@ -1,7 +1,7 @@
 
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from application.things.models import Thing
+from application.things.models import Thing, ThingTheme
 from application.things.forms import ThingForm
 from application.things.forms import DescriptionForm
 from flask_login import login_required, current_user
@@ -16,7 +16,7 @@ from pathlib import Path
 @app.route("/things", methods=["GET"])
 @login_required
 def things_index():
-    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(), ranks = Rank.query.filter(Rank.account_id == current_user.id).all(),form = DescriptionForm())
+    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(), ranks = Rank.query.filter(Rank.account_id == current_user.id).all(), themes = Theme.query.filter(Theme.account_id == current_user.id).all(), thingthemes = ThingTheme.query.filter(ThingTheme.account_id == current_user.id).all(), form = DescriptionForm())
 
 # Showing the page to make new things
 @app.route("/things/new/")
@@ -58,7 +58,6 @@ def things_create():
         
         return render_template("things/list.html", form = form)
     
-   
     
     
     t = Thing(form.name.data, form.description.data)
@@ -70,6 +69,13 @@ def things_create():
     t.rank_id = rank.id
     t.account_id = current_user.id
     db.session().add(t)
+    for x in form.theme.data:
+        theme = Theme.query.filter_by(name = x).first()
+        thing = t
+        tt = ThingTheme(t.id, theme.id)
+        tt.account_id = current_user.id
+        db.session().add(tt)
+    
     try:
         db.session().commit()
     except Exception as e:
