@@ -6,6 +6,7 @@ from application.things.forms import ThingForm
 from application.things.forms import DescriptionForm
 from flask_login import login_required, current_user
 from application.ranks.models import Rank
+from application.themes.models import Theme
 from sqlalchemy.sql import text
 import os.path
 from pathlib import Path
@@ -34,6 +35,16 @@ def things_form():
         values = (rowName, rowName)
         response.append(values)
     formC.rank.choices = response
+
+    themeRes = Theme.query.filter(Theme.account_id == current_user.id).all()
+    themeResponse = []
+    for row in themeRes:
+        rowName = str(row.name)    
+        
+        values = (rowName, rowName)
+        themeResponse.append(values)
+    formC.theme.choices = themeResponse
+
     return render_template("things/new.html", form = formC)
 #Saving new thing with parameters from the new form
 @app.route("/things", methods=["POST"])

@@ -50,8 +50,26 @@
         </td>
       </tr>
       <tr>
+        <td>
+          {{ form.theme.label }}
+        </td>
+        <td>
+          {{ form.theme(class="form-control") }}
+        </td>
+        <td>
+          Valitse useampi pitämällä Ctrl pohjassa
+        </td>
+        <td>
+          <ul>
+            {% for error in form.theme.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+      <tr>
 	<td colspan="2">
-	  <input class = "btn btn-primary" type="submit" value="Add a new thing to remember"/>
+	  <input class = "btn btn-primary" type="submit" value="Lisää uusi muistettava asia"/>
 	</td>
       </tr>
   </form>
