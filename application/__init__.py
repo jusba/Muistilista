@@ -29,6 +29,9 @@ from application.auth import views
 # Importing things for rank
 from application.ranks import models
 from application.ranks import views
+# Importing things for themes
+from application.themes import models
+from application.themes import views
 
 #Importing things needed for sign in
 from application.auth.models import User

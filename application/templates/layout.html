@@ -16,17 +16,24 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('things_index') }}">List things to remember</a>
+                      <a class="nav-link" href="{{ url_for('things_index') }}">Listaa muistettavat asiat</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{ url_for('things_form') }}">Add a new thing to remember</a>
+                      <a class="nav-link" href="{{ url_for('things_form') }}">Lisää uusi muistettava asia</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('ranks_index') }}">List ranks</a>
+                        <a class="nav-link" href="{{ url_for('ranks_index') }}">Listaa kiireellisyysluokat</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('ranks_form') }}">Add a new rank</a>
+                        <a class="nav-link" href="{{ url_for('ranks_form') }}">Lisää uusi kiireellisyysluokka</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('themes_index') }}">Listaa teemat</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('themes_form') }}">Lisää uusi teema</a>
+                      </li>
+                    
                   </ul>
                   <div class="form-inline mt-2 mt-md-0">
               {% if current_user.is_authenticated %}
