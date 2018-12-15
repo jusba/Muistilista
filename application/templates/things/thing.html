@@ -2,10 +2,10 @@
 
 {% block body %}
 
-  <table>
-        {% for thing in things %}
+<table>
+  {% for thing in things %}
 
-        <style>
+  <style>
             td {
                 
                 
@@ -14,80 +14,105 @@
             }
             
         </style>
-    <tr>
-      <th>Muistettava asia</th> 
-      <th>Kuvaus</th>  
-      <th>Tärkeys</th> 
-      <th>Asian id</th>
-      <th>Asian tärkeyden id</th>
-      <th>Asian tekijän id</th>
-      <th>Asian luontiajankohta</th>
-      <th>Asian muokkausajankohta</th>
+  <tr>
+    <th>Muistettava asia</th>
+    <th>Kuvaus</th>
+    <th>Tärkeys</th>
+    <th>Teemat</th>
+    <th>Asian id</th>
+    <th>Asian tärkeyden id</th>
+    <th>Asian tekijän id</th>
+    <th>Asian luontiajankohta</th>
+    <th>Asian muokkausajankohta</th>
 
-      
-      
-    </tr>
-    
-    <tr>
-      <td>{{ thing.name }}</td>
-      <td>{{ thing.description }}</td>
-      {% for rank in ranks %}
-      {% if thing.rank_id == rank.id %}
-      <td >{{rank.name}}</td>
+
+
+  </tr>
+
+  <tr>
+    <td>{{ thing.name }}</td>
+    <td>{{ thing.description }}</td>
+    {% for rank in ranks %}
+    {% if thing.rank_id == rank.id %}
+    <td>{{rank.name}}</td>
+    {% endif %}
+    {% endfor %}
+    <td>
+      {% for thingtheme in thingthemes %}
+      {% if thingtheme.thing_id == thing.id %}
+      {% for theme in themes %}
+      {% if thingtheme.theme_id == theme.id %}
+      {{theme.name}}
       {% endif %}
       {% endfor %}
-      <td>{{ thing.id }}</td>
-      <td>{{ thing.rank_id }}</td>
-      <td>{{ thing.account_id }}</td>
-      <td>{{ thing.date_created }}</td>
-      <td>{{ thing.date_modified }}</td>
+      {% endif %}
+      {% endfor %}
+    </td>
+    <td>{{ thing.id }}</td>
+    <td>{{ thing.rank_id }}</td>
+    <td>{{ thing.account_id }}</td>
+    <td>{{ thing.date_created }}</td>
+    <td>{{ thing.date_modified }}</td>
 
-    </tr>
-    </table>
-      <h3>Muokkaa tietoja</h3>
-      <form method="POST" action="{{ url_for('thing_change_description',thing_id=thing.id) }}">
-          <td>
-              {{ form.description.label }}
-            </td>
-          <td>
-              {{ form.description(class="form-control" , placeholder="Osta kanaa", cols="5", rows="5")}}
-          </td>
-          <td>
-              <ul>
-                {% for error in form.description.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-          </td>
-
-          <td>
-              {{ form.rank.label }}
-            </td>
-            <td>
-              {{ form.rank(class="form-control") }}
-            </td>
-            <td>
-              <ul>
-                {% for error in form.rank.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-            </td>
-  
-          
-          <td colspan="2">
-              <input class = "btn btn-primary" type="submit" value="Muokkaa tietoja"/>
-          </td>
-      </form> 
-    
+  </tr>
+</table>
+<h3>Muokkaa tietoja</h3>
+<form method="POST" action="{{
+  url_for('thing_change_description',thing_id=thing.id) }}">
+  <p>
+    {{ form.description.label }}
+  </p>
+  <p>
+    {{ form.description(class="form-control" , placeholder="Osta kanaa",
+    cols="5", rows="5")}}
+  </p>
+  <p>
+    <ul>
       {% for error in form.description.errors %}
       <li>{{ error }}</li>
       {% endfor %}
-       
-      
-    
-    {% endfor %} 
-    
-  
-  
+    </ul>
+  </p>
+
+  <p>
+    {{ form.rank.label }}
+  </p>
+  <p>
+    {{ form.rank(class="form-control") }}
+  </p>
+  <p>
+    <ul>
+      {% for error in form.rank.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </p>
+  <p>
+    {{ form.themes.label }} (Valitse useampi pitämällä Ctrl pohjassa)
+  </p>
+  <p>
+    {{ form.themes(class="form-control") }}
+  </p>
+  <p>
+    <ul>
+      {% for error in form.themes.errors %}
+      <li>{{ error }}</li>
+      {% endfor %}
+    </ul>
+  </p>
+
+
+  <p colspan="2">
+    <input class="btn btn-primary" type="submit" value="Muokkaa tietoja" />
+  </p>
+</form>
+
+
+
+
+
+{% endfor %}
+
+
+
 {% endblock %}

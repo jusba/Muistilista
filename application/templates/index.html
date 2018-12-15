@@ -1,21 +1,23 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Muistilistasovellus: kirjaudu tai luo tunnus, jotta voit lisätä muistettavia asioita.
-  </p>
-  {% if needs_things is defined %}
-  <p>
-    The following users are happy to have nothing to remember:
-  </p>
+<p>
+  Muistilistasovellus: kirjaudu tai luo tunnus, jotta voit lisätä muistettavia
+  asioita.
+</p>
+{% if needs_things is defined %}
+<p>
+  Seuraavilla käyttäjillä ei ole mitään muistettavaa :):
+</p>
 
-  <ul>
-    {% for user in needs_things %}
-    <li>
-      {{user.id}} {{user.name}}
-    </li>
-    {% endfor %}
-  </ul>
+
+<ul>
+  {% for user in needs_things %}
+  <li>
+    {{user.id}} {{user.name}}
+  </li>
+  {% endfor %}
+</ul>
 
 {% endif %}
 

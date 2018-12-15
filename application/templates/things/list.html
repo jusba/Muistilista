@@ -2,17 +2,17 @@
 
 {% block body %}
 
-  <h1>
-      
-    
-      {% for error in form.description.errors %}
-     <li>{{ error }}</li>
-     {% endfor %}
-     
-      
-    </h1>
-  <table>
-      <style>
+<h1>
+
+
+    {% for error in form.description.errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+
+
+</h1>
+<table>
+    <style>
           td {
               
               padding-right: 30px;
@@ -25,50 +25,51 @@
           }
       </style>
     <tr>
-      <th>Muistettava asia</th> 
-      <th>Kuvaus</th>  
-      <th>Tärkeys</th>
-      <th>Teemat</th>
-      <style>
+        <th>Muistettava asia</th>
+        <th>Kuvaus</th>
+        <th>Tärkeys</th>
+        <th>Teemat</th>
+        <style>
           td {
               
               padding-right: 30px;
               
           }
           </style>
-      
     </tr>
     {% for thing in things %}
     <tr>
-      <td>{{ thing.name }} </td>
-      <td>{{ thing.description }}</td>
-      
-      
-      {% for rank in ranks %}
-      {% if thing.rank_id == rank.id %}
-      <td >{{rank.name}}</td>
-      {% endif %}
-      {% endfor %}
-    <td >
-      {% for thingtheme in thingthemes %}
-        {% if thingtheme.thing_id == thing.id %}
-            {% for theme in themes %}
-                {% if thingtheme.theme_id == theme.id %}
-                    {{theme.name}}
-                {% endif %}    
-            {% endfor %}
+        <td>{{ thing.name }} </td>
+        <td>{{ thing.description }}</td>
+
+
+        {% for rank in ranks %}
+        {% if thing.rank_id == rank.id %}
+        <td>{{rank.name}}</td>
         {% endif %}
-      {% endfor %}
+        {% endfor %}
+        <td>
+            {% for thingtheme in thingthemes %}
+            {% if thingtheme.thing_id == thing.id %}
+            {% for theme in themes %}
+            {% if thingtheme.theme_id == theme.id %}
+            {{theme.name}}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
         </td>
         <td colspan="2">
             <a href="{{ url_for('thing_show',thing_id=thing.id) }}">Tarkastele</a>
         </td>
 
         <td colspan="2">
-      <a href= "{{ url_for('thing_delete',thing_id=thing.id) }}" style ="color: #000; background: #f00" >Poista</a>
+            <a href="{{ url_for('thing_delete',thing_id=thing.id) }}"
+                style="color:
+                #000; background: #f00">Poista</a>
         </td>
-      
+
     </tr>
     {% endfor %}
-  </table>
+</table>
 {% endblock %}

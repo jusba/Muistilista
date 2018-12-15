@@ -1,5 +1,6 @@
 from application import db
 from application.models import Base
+from sqlalchemy.sql import text
 
 class Thing(Base):
     
@@ -18,6 +19,25 @@ class Thing(Base):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+    
+    @staticmethod
+    def find_things_with_missing_info():
+
+        stmt = text("SELECT Thing.id, Thing.name FROM Thing"
+                    "WHERE thingThemes IS null OR"
+                    "rank_id IS null OR"
+                    "description IS NULL"
+                    "GROUP BY Thing.id")
+
+
+        
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1]})
+
+        return response
 
 class ThingTheme(Base):
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
@@ -29,3 +49,5 @@ class ThingTheme(Base):
     def __init__(self, thing_id, theme_id):
         self.thing_id = thing_id
         self.theme_id = theme_id
+
+

@@ -2,24 +2,25 @@
 
 {% block body %}
 
-  
-  <table>
-    <tr>
-      <th>Teema</th> 
-      
-    </tr>
-    {% for theme in themes %}
-    <tr>
-      <td>{{ theme.name }}</td>
-       <td colspan="2">
-            <a href="{{ url_for('theme_show',theme_id=theme.id) }}">Tarkastele</a>
-        </td>
 
-        <td colspan="2">
-      <a href="{{ url_for('theme_delete',theme_id=theme.id) }}" style ="color: #000; background: #f00">Poista</a>
-        </td>
-      
-    </tr>
-    {% endfor %}
-  </table>
+<table>
+  <tr>
+    <th>Teema</th>
+
+  </tr>
+  {% for theme in themes %}
+  <tr>
+    <td>{{ theme.name }}</td>
+    <td colspan="2">
+      <a href="{{ url_for('theme_show',theme_id=theme.id) }}">Tarkastele</a>
+    </td>
+
+    <td colspan="2">
+      <a href="{{ url_for('theme_delete',theme_id=theme.id) }}" style="color:
+        #000; background: #f00">Poista</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}

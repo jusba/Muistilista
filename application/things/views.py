@@ -97,6 +97,15 @@ def thing_change_description(thing_id):
     t.description = form.description.data
     rank = Rank.query.filter_by(name = form.rank.data).first()
     t.rank_id = rank.id
+    ThingTheme.query.filter(ThingTheme.thing_id == thing_id).delete()
+    
+    for x in form.themes.data:
+        theme = Theme.query.filter_by(name = x).first()
+        
+        tt = ThingTheme(t.id, theme.id)
+        tt.account_id = current_user.id
+        db.session().add(tt)
+    
     
     db.session().commit()
     return redirect(url_for("things_index")) 
@@ -105,6 +114,7 @@ def thing_change_description(thing_id):
 @login_required
 def thing_delete(thing_id):
     Thing.query.filter(Thing.id == thing_id).delete()
+    ThingTheme.query.filter(ThingTheme.thing_id == thing_id).delete()
     db.session().commit()
     return redirect(url_for("things_index")) 
 #Showing one thing
@@ -125,8 +135,23 @@ def thing_show(thing_id):
         response.append(values)
     formC.rank.choices = response
 
+    
+    themes = Theme.query.filter(Theme.account_id == current_user.id).all()
+    response2 = []
+    
+    for row2 in themes:
+        
+        rowName = str(row2.name)    
+        values = (rowName, rowName)
+        response2.append(values)
+
+
+
+    
+    formC.themes.choices = response2
+
     form = formC
-    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all(),ranks = Rank.query.filter(Rank.account_id == current_user.id).all(), form = form)
+    return render_template("things/thing.html", things = Thing.query.filter(Thing.id == thing_id).all(),ranks = Rank.query.filter(Rank.account_id == current_user.id).all(),themes = Theme.query.filter(Theme.account_id == current_user.id).all(), thingthemes = ThingTheme.query.filter(ThingTheme.account_id == current_user.id).all(), form = form)
 
 
 

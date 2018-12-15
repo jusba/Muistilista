@@ -2,21 +2,22 @@
 
 {% block body %}
 
-  
-  <table>
-    <tr>
-      <th>Rank</th> 
-      
-    </tr>
-    {% for rank in ranks %}
-    <tr>
-      <td>{{ rank.name }}</td>
 
-        <td colspan="2">
-      <a href="{{ url_for('rank_delete',rank_id=rank.id) }}" style ="color: #000; background: #f00">Poista</a>
-        </td>
-      
-    </tr>
-    {% endfor %}
-  </table>
+<table>
+  <tr>
+    <th>Rank</th>
+
+  </tr>
+  {% for rank in ranks %}
+  <tr>
+    <td>{{ rank.name }}</td>
+
+    <td colspan="2">
+      <a href="{{ url_for('rank_delete',rank_id=rank.id) }}" style="color: #000;
+        background: #f00">Poista</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
 {% endblock %}

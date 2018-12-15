@@ -2,10 +2,10 @@
 
 {% block body %}
 
-  <table>
-        {% for theme in themes %}
+<table>
+    {% for theme in themes %}
 
-        <style>
+    <style>
             td {
                 
                 
@@ -15,56 +15,89 @@
             
         </style>
     <tr>
-      <th>Teema</th> 
-      <th>Teeman id</th>
-      <th>Asian tekijän id</th>
-      <th>Asian luontiajankohta</th>
-      <th>Asian muokkausajankohta</th>
+        <th>Teema</th>
+        <th>Teeman id</th>
+        <th>Teemaan liittyvät muistettavat asiat</th>
+        <th>Asian tekijän id</th>
+        <th>Asian luontiajankohta</th>
+        <th>Asian muokkausajankohta</th>
 
-      
-      
+
+
     </tr>
-    
+
     <tr>
-      <td>{{ theme.name }}</td>
-      <td>{{ theme.id }}</td>
-      
-      <td>{{ theme.account_id }}</td>
-      <td>{{ theme.date_created }}</td>
-      <td>{{ theme.date_modified }}</td>
+        <td>{{ theme.name }}</td>
+        <td>{{ theme.id }}</td>
+        <td>
+            {% for thingtheme in thingthemes %}
+            {% if thingtheme.theme_id == theme.id %}
+            {% for thing in things %}
+            {% if thingtheme.thing_id == thing.id %}
+            {{thing.name}}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </td>
+        <td>{{ theme.account_id }}</td>
+        <td>{{ theme.date_created }}</td>
+        <td>{{ theme.date_modified }}</td>
 
     </tr>
-    </table>
-      <h3>Muokkaa tietoja</h3>
-      <form method="POST" action="{{ url_for('theme_edit',theme_id=theme.id) }}">
-          <td>
-              {{ form.name.label }}
-            </td>
-          <td>
-              {{ form.name(class="form-control" , placeholder="Ruoka", cols="5", rows="5")}}
-          </td>
-          <td>
-              <ul>
-                {% for error in form.name.errors %}
-                <li>{{ error }}</li>
-                {% endfor %}
-              </ul>
-          </td>
+</table>
+<h3>Muokkaa tietoja</h3>
+<form method="POST" action="{{ url_for('theme_edit',theme_id=theme.id) }}">
+    <p>
+        {{ form.name.label }}
+    </p>
+    <p>
+        {{ form.name(class="form-control" , placeholder="Ruoka", cols="5",
+        rows="5")}}
+    </p>
+    <p>
+        <p>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </p>
+    </p>
 
-          
-  
-          
-          <td colspan="2">
-              <input class = "btn btn-primary" type="submit" value="Muokkaa teemaa"/>
-          </td>
-      </form> 
-    
-     
-       
-      
-    
-    {% endfor %} 
-    
-  
-  
+    <h3>Valitse muistettavat asiat joilta {{ theme.name }} poistetaan.</h3>
+
+    <p>
+        {{ form.things.label }}, valitse useampi vaihtoehto pitämällä Ctrl
+        pohjassa.
+    </p>
+    <p>
+        {{form.things(class="form-control")}}
+    </p>
+
+
+    <p>
+        <p>
+            {% for error in form.name.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </p>
+    </p>
+
+
+    <p colspan="2">
+        <input class="btn btn-primary" type="submit" value="Muokkaa teemaa" />
+    </p>
+
+
+
+
+</form>
+
+
+
+
+
+{% endfor %}
+
+
+
 {% endblock %}

@@ -1,8 +1,9 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
-from application.themes.forms import ThemeForm
+from application.themes.forms import ThemeForm, ThemeEditForm
 from flask_login import login_required, current_user
 from application.themes.models import Theme
+from application.things.models import Thing, ThingTheme
 
 #Showing list of themes
 @app.route("/themes", methods=["GET"])
@@ -48,9 +49,24 @@ def theme_edit(theme_id):
 @app.route("/themes/theme/<theme_id>/",methods=["GET"])
 @login_required
 def theme_show(theme_id):
-    form = ThemeForm()
+    form = ThemeEditForm()
     
-    return render_template("themes/theme.html", themes = Theme.query.filter(Theme.id == theme_id).all(), form = form)
+    thingthemes = ThingTheme.query.filter(ThingTheme.theme_id == theme_id).all() 
+    things = Thing.query.filter(Thing.account_id == current_user.id).all()
+    response = []
+    for row in thingthemes:
+        for row2 in things:
+            if row.thing_id == row2.id:
+                rowName = str(row2.name)    
+                values = (rowName, rowName)
+                response.append(values)
+
+
+
+    
+    form.things.choices = response
+    
+    return render_template("themes/theme.html", themes = Theme.query.filter(Theme.id == theme_id).all(), form = form, thingthemes = ThingTheme.query.filter(ThingTheme.account_id == current_user.id).all(), things = Thing.query.filter(Thing.account_id == current_user.id).all())
 
 #Delete theme
 @app.route("/themes/<theme_id>/",methods=["GET", "POST"])
