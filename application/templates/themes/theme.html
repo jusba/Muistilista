@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+  <table>
+        {% for theme in themes %}
+
+        <style>
+            td {
+                
+                
+                padding-bottom: 50px;
+                
+            }
+            
+        </style>
+    <tr>
+      <th>Teema</th> 
+      <th>Teeman id</th>
+      <th>Asian tekijän id</th>
+      <th>Asian luontiajankohta</th>
+      <th>Asian muokkausajankohta</th>
+
+      
+      
+    </tr>
+    
+    <tr>
+      <td>{{ theme.name }}</td>
+      <td>{{ theme.id }}</td>
+      
+      <td>{{ theme.account_id }}</td>
+      <td>{{ theme.date_created }}</td>
+      <td>{{ theme.date_modified }}</td>
+
+    </tr>
+    </table>
+      <h3>Muokkaa tietoja</h3>
+      <form method="POST" action="{{ url_for('theme_edit',theme_id=theme.id) }}">
+          <td>
+              {{ form.name.label }}
+            </td>
+          <td>
+              {{ form.name(class="form-control" , placeholder="Ruoka", cols="5", rows="5")}}
+          </td>
+          <td>
+              <ul>
+                {% for error in form.name.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+              </ul>
+          </td>
+
+          
+  
+          
+          <td colspan="2">
+              <input class = "btn btn-primary" type="submit" value="Muokkaa teemaa"/>
+          </td>
+      </form> 
+    
+     
+       
+      
+    
+    {% endfor %} 
+    
+  
+  
+{% endblock %}

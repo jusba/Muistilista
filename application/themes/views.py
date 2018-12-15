@@ -28,6 +28,30 @@ def themes_create():
     db.session().commit()
   
     return redirect(url_for("themes_index"))     
+
+#Edit theme
+@app.route("/themes/<theme_id>/",methods=["POST"])
+@login_required
+def theme_edit(theme_id):
+    
+    form = ThemeForm()
+    
+    if not form.validate_on_submit():
+        return render_template("themes/list.html", form = form)
+    t = Theme.query.get(theme_id)
+    t.name = form.name.data
+    
+    
+    db.session().commit()
+    return redirect(url_for("themes_index")) 
+#Showing one theme
+@app.route("/themes/theme/<theme_id>/",methods=["GET"])
+@login_required
+def theme_show(theme_id):
+    form = ThemeForm()
+    
+    return render_template("themes/theme.html", themes = Theme.query.filter(Theme.id == theme_id).all(), form = form)
+
 #Delete theme
 @app.route("/themes/<theme_id>/",methods=["GET", "POST"])
 @login_required
@@ -35,4 +59,3 @@ def theme_delete(theme_id):
     Theme.query.filter(Theme.id == theme_id).delete()
     db.session().commit()
     return redirect(url_for("themes_index")) 
-

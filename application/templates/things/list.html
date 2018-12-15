@@ -49,17 +49,17 @@
       <td >{{rank.name}}</td>
       {% endif %}
       {% endfor %}
-
+    <td >
       {% for thingtheme in thingthemes %}
         {% if thingtheme.thing_id == thing.id %}
             {% for theme in themes %}
                 {% if thingtheme.theme_id == theme.id %}
-                    <td >{{theme.name}}</td>
+                    {{theme.name}}
                 {% endif %}    
             {% endfor %}
         {% endif %}
       {% endfor %}
-      
+        </td>
         <td colspan="2">
             <a href="{{ url_for('thing_show',thing_id=thing.id) }}">Tarkastele</a>
         </td>
