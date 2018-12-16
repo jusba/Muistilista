@@ -11,6 +11,22 @@
 
 
 </h1>
+</p>
+{% if too_much is defined %}
+<p>
+  Seuraaville muistettavilla asioilla on monta teemaa, miksi teemoittaa niin paljon?
+</p>
+
+
+<ul>
+  {% for thing in too_much %}
+  <li>
+    {{thing.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
 <table>
     <style>
           td {

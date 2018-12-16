@@ -44,4 +44,18 @@ class User(Base):
             response.append({"id":row[0], "name":row[1]})
 
         return response
-
+    
+    def user_statistics():
+        stmt = text("SELECT Account.id, Account.name, "
+                    "count(DISTINCT thing.id) as things, count(DISTINCT rank.id) as ranks , count(DISTINCT theme.id) as themes "
+                    "From Account "
+                    "LEFT JOIN  thing ON account.id = thing.account_id "
+                    "LEFT JOIN rank ON account.id = rank.account_id "
+                    "LEFT JOIN theme ON account.id = theme.account_id "
+                    "GROUP BY Account.id "
+                    )
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+                response.append({"id":row[0], "name":row[1], "things":row[2], "ranks":row[3], "themes":row[4]})
+        return response

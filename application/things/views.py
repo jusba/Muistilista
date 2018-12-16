@@ -16,7 +16,7 @@ from pathlib import Path
 @app.route("/things", methods=["GET"])
 @login_required
 def things_index():
-    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(), ranks = Rank.query.filter(Rank.account_id == current_user.id).all(), themes = Theme.query.filter(Theme.account_id == current_user.id).all(), thingthemes = ThingTheme.query.filter(ThingTheme.account_id == current_user.id).all(), form = DescriptionForm())
+    return render_template("things/list.html", things = Thing.query.filter(Thing.account_id == current_user.id).all(), ranks = Rank.query.filter(Rank.account_id == current_user.id).all(), themes = Theme.query.filter(Theme.account_id == current_user.id).all(), thingthemes = ThingTheme.query.filter(ThingTheme.account_id == current_user.id).all(), form = DescriptionForm(),too_much=Thing.find_things_with_many_themes())
 
 # Showing the page to make new things
 @app.route("/things/new/")

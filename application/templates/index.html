@@ -1,14 +1,27 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<p>
+<style>
+          h3 {
+              
+              padding-bottom: 30px;
+              
+          }
+          th {
+              
+              padding-right: 10px;
+              
+          }
+          
+      </style>
+<h3>
   Muistilistasovellus: kirjaudu tai luo tunnus, jotta voit lisätä muistettavia
   asioita.
-</p>
+</h3>
 {% if needs_things is defined %}
-<p>
-  Seuraavilla käyttäjillä ei ole mitään muistettavaa :):
-</p>
+<h5>
+  Seuraavilla käyttäjillä ei ole mitään muistettavaa:
+</h5>
 
 
 <ul>
@@ -21,4 +34,29 @@
 
 {% endif %}
 
-{% endblock %}
+{% if statistics is defined %}
+<h5>
+  Seuraavilla käyttäjillä on todennäköisesti liikaakin muistettavaa, tässä
+  tilastot: 
+</h5>
+
+<table>
+  <tr>
+    <th>Käyttäjä id</th>
+    <th>Käyttäjänimi</th>
+    <th>Muistettavat asiat</th>
+    <th>Tärkeysluokat</th>
+    <th>Teemaluokat</th>
+  </tr>
+
+  {% for user in statistics %}
+  <tr>
+    <td>{{user.id}}</td> <td>{{user.name}}</td> <td>{{user.things}}</td> <td>{{user.ranks}}</td>
+    <td>{{user.themes}}</td>
+  </tr>
+  {% endfor %}
+
+
+  {% endif %}
+
+  {% endblock %}

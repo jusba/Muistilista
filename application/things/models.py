@@ -21,13 +21,14 @@ class Thing(Base):
         self.description = description
     
     @staticmethod
-    def find_things_with_missing_info():
+    def find_things_with_many_themes():
 
-        stmt = text("SELECT Thing.id, Thing.name FROM Thing"
-                    "WHERE thingThemes IS null OR"
-                    "rank_id IS null OR"
-                    "description IS NULL"
-                    "GROUP BY Thing.id")
+        stmt = text("SELECT thing.id, thing.name FROM thing, thing_theme "
+                    "WHERE thing.id = thing_theme.thing_id "
+                    "GROUP BY thing.id "
+                    "HAVING COUNT(thing_theme.id) > 1"
+
+                    )
 
 
         
