@@ -16,7 +16,7 @@ class ThingForm(FlaskForm):
     
     
     
-    response = []
+    
     
 
     name = StringField("Muistettava asia" ,[validators.DataRequired(message="Nimi on pakko laittaa"), validators.length(min=1, max=100, message="Nimen pituus 1-100 merkkiä, yritä uudelleen!")])

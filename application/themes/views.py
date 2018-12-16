@@ -36,8 +36,8 @@ def themes_create():
 def theme_edit(theme_id):
     
     form = ThemeEditForm()
-   # if not form.validate_on_submit():
-     #   return render_template("themes/list.html", form = form)
+    if not form.validate_on_submit():
+        return render_template("themes/list.html", form = form)
     
     t = Theme.query.get(theme_id)
     t.name = form.name.data
