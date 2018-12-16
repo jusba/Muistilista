@@ -35,13 +35,26 @@ def themes_create():
 @login_required
 def theme_edit(theme_id):
     
-    form = ThemeForm()
+    form = ThemeEditForm()
+   # if not form.validate_on_submit():
+     #   return render_template("themes/list.html", form = form)
     
-    if not form.validate_on_submit():
-        return render_template("themes/list.html", form = form)
     t = Theme.query.get(theme_id)
     t.name = form.name.data
-    
+    things_data = form.things.data
+    things = []
+    for row in things_data:
+        
+        thing = Thing.query.filter_by(name = row).first()
+        things.append(thing)
+
+    tt = ThingTheme.query.filter(ThingTheme.theme_id == t.id).all()
+    for row in things:
+        for row2 in tt:
+            if row.id == row2.thing_id and row2.theme_id == t.id:
+                
+                ThingTheme.query.filter(ThingTheme.thing_id == row.id).delete()    
+
     
     db.session().commit()
     return redirect(url_for("themes_index")) 
