@@ -53,7 +53,7 @@ def theme_edit(theme_id):
         for row2 in tt:
             if row.id == row2.thing_id and row2.theme_id == t.id:
                 
-                ThingTheme.query.filter(ThingTheme.thing_id == row.id).delete()    
+                ThingTheme.query.filter(ThingTheme.id == row2.id).delete()    
 
     
     db.session().commit()
