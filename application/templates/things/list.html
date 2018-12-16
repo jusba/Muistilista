@@ -52,15 +52,14 @@
         <td>{{ thing.name }} </td>
         <td>{{ thing.description }}</td>
 
-
+        <td>
         {% for rank in ranks %}
         {% if thing.rank_id == rank.id %}
-        <td>{{rank.name}}</td>
-        
-        {% else %}
-        <td></td>
+        {{rank.name}}
         {% endif %}
         {% endfor %}
+        </td>
+
         <td>
             {% for thingtheme in thingthemes %}
             {% if thingtheme.thing_id == thing.id %}

@@ -36,12 +36,14 @@ def rank_delete(rank_id):
     things = Thing.query.filter(Thing.rank_id == rank_id).all()
     ids = []
     for row in things:
-        if row.rank_id == rank_id:
+        
+        if str(row.rank_id) == str(rank_id):
+            
             ids.append(row.id)
     
     for row in ids:
         t = Thing.query.get(row)
-        t.rank_id = None
+        t.rank_id = 9999
         db.session().commit()
 
     Rank.query.filter(Rank.id == rank_id).delete()
