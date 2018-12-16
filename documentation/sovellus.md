@@ -4,7 +4,7 @@
 
 Sovellus on käytettävyydeltään varsin vaikea, kun sitä verrataan muihin samantyylisin websovelluksiin.  Se on kankean ja vanhanaikaisen oloinen, eikä sen käyttö ole tehokasta. Esim. kun halutaan lisätä uusia muistettavia asioita, täytyy ensin käydä lisäilemässä niille tärkeys- ja teemaluokkia. Käytöstä tulee tällöin varsin vaivalloista ja hidasta. Tätä voisi ehkä parantaa lisäominaisuuksilla ja etenkin Html elementtien päivityksellä, mutta nyt aika ja osaaminen ei riitä siihen.
 
-Varsinaisia bugejakin on, muistettaville asioille tulee joku satunnainen tärkeys, jos niiden olemassa oleva tärkeys poistetaan. Tämä luotiin sitä varten, jotta sovelluksen tietokanta toimii Herokussa, paikallisesti se toimi aikaisemmin kunnolla. Muitakin bugeja varmasti löytyy, dokumentoin niitä tähän, kun löytyy.
+Varsinaisia bugejakin on, muistettaville asioille tulee joku satunnainen tärkeys, jos niiden olemassa oleva tärkeys poistetaan. Tämä luotiin sitä varten, jotta sovelluksen tietokanta toimii Herokussa, paikallisesti se toimi aikaisemmin kunnolla. Muitakin bugeja varmasti löytyy, dokumentoin niitä tähän, kun löytyy: **Sovellus näyttää kaikkien käyttäjien asiat, joissa on enemmän kuin yksi teema listauksen yhteydessä**  
 
 Osa sovelluksen redirecteistä ja muista uudelle sivulle siirtävistä funktioista on huonosti suunniteltu. Ne siirtävät käyttäjän välillä epätehokkaasti ja käyttäjä joutuu tekemään useamman ylimääräisen klikkauksen.
 
