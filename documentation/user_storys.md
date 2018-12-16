@@ -25,12 +25,12 @@ Peruskäyttäjänä haluan sovelluksen, mihin voin luoda tunnuksen ja lisätä t
 Luodaan muistilistasovellus, mihin toteutetaan käyttäjätunnuksen luonti ja kirjautumismahdollisuus, jolloin muistettavista asioita tulee käyttäjätunnusriippuvaisia.
 
 
-#### Käyttäjä 5*. 
-Ylläpitäjäkäyttäjänä haluan sovelluksen, mistä voin poistaa ylimääräisten henkilöiden tekemiä tietoja, koska ihmiset eivät kuitenkaan osaa käyttäytyä.
+ #### Käyttäjä 5*. 
+ <del>Ylläpitäjäkäyttäjänä haluan sovelluksen, mistä voin poistaa ylimääräisten henkilöiden tekemiä tietoja, koska ihmiset eivät <del>kuitenkaan osaa käyttäytyä. 
 ###### Miten toteutetaan?
-Luodaan muistilistasovellus, missä on mahdollista olla erilaisia käyttäjärooleja. Yksi näistä on ylläpitäjäkäyttäjä, joka pystyy poistamaan muisten luomia turhia asioita kuten esimerkiksi teemaluokkia tai tärkeysluokkia.
+<del>Luodaan muistilistasovellus, missä on mahdollista olla erilaisia käyttäjärooleja. Yksi näistä on ylläpitäjäkäyttäjä, joka pystyy <del>poistamaan muisten luomia turhia asioita kuten esimerkiksi teemaluokkia tai tärkeysluokkia.
 
-*Toteutus ei ole vielä varma tässä vaiheessa projektia.
+ *Ei toteutettu.
 
 
 
