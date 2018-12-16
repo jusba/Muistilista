@@ -27,7 +27,7 @@ Luodaan muistilistasovellus, mihin toteutetaan käyttäjätunnuksen luonti ja ki
 
  #### Käyttäjä 5*. 
  <del>Ylläpitäjäkäyttäjänä haluan sovelluksen, mistä voin poistaa ylimääräisten henkilöiden tekemiä tietoja, koska ihmiset eivät <del>kuitenkaan osaa käyttäytyä. 
-<del>###### Miten toteutetaan?
+###### Miten toteutetaan?
 <del>Luodaan muistilistasovellus, missä on mahdollista olla erilaisia käyttäjärooleja. Yksi näistä on ylläpitäjäkäyttäjä, joka pystyy <del>poistamaan muisten luomia turhia asioita kuten esimerkiksi teemaluokkia tai tärkeysluokkia.
 
  *Ei toteutettu.
