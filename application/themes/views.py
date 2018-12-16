@@ -85,6 +85,8 @@ def theme_show(theme_id):
 @app.route("/themes/<theme_id>/",methods=["GET", "POST"])
 @login_required
 def theme_delete(theme_id):
+    ThingTheme.query.filter(ThingTheme.theme_id == theme_id).delete()
+    db.session().commit()
     Theme.query.filter(Theme.id == theme_id).delete()
     db.session().commit()
     return redirect(url_for("themes_index")) 
