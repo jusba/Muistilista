@@ -42,8 +42,9 @@ def rank_delete(rank_id):
             ids.append(row.id)
     
     for row in ids:
+        rank = Rank.query.first()
         t = Thing.query.get(row)
-        t.rank_id = 9999
+        t.rank_id = rank.id
         db.session().commit()
 
     Rank.query.filter(Rank.id == rank_id).delete()
