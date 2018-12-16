@@ -14,3 +14,4 @@
 |30.11.18|7h|Selectfield toimii, heroku toimii,tietokannat taitaa toimia |
 |1.12.18|7h|templatejen muokkausta, ulkoasun parantamista, rankin muokkaus mahdollista, rank näkyy listauksessa ja tarkastelussa, alustavat käyttö ja asennusohjeet |
 |7.12.18|3h|Validointi vihdoin toimii|
+|15.12.2018|10h|Teemat, niiden linkitys muistettaviin välitaululla, selectmultiplefield, crud päivitystä, yhteehvetokyselyitä, heroku tietokannan resetointi, yleisilmeen kohtentamista.|
