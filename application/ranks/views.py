@@ -3,6 +3,7 @@ from flask import redirect, render_template, request, url_for
 from application.ranks.forms import RankForm
 from flask_login import login_required, current_user
 from application.ranks.models import Rank
+from application.things.models import Thing
 
 #Showing list of ranks
 @app.route("/ranks", methods=["GET"])
@@ -32,6 +33,17 @@ def ranks_create():
 @app.route("/ranks/<rank_id>/",methods=["GET", "POST"])
 @login_required
 def rank_delete(rank_id):
+    things = Thing.query.filter(Thing.rank_id == rank_id).all()
+    ids = []
+    for row in things:
+        if row.rank_id == rank_id:
+            ids.append(row.id)
+    
+    for row in ids:
+        t = Thing.query.get(row)
+        t.rank_id = None
+        db.session().commit()
+
     Rank.query.filter(Rank.id == rank_id).delete()
     db.session().commit()
     return redirect(url_for("ranks_index")) 

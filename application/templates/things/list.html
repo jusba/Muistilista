@@ -45,13 +45,7 @@
         <th>Kuvaus</th>
         <th>Tärkeys</th>
         <th>Teemat</th>
-        <style>
-          td {
-              
-              padding-right: 30px;
-              
-          }
-          </style>
+        
     </tr>
     {% for thing in things %}
     <tr>
@@ -62,6 +56,9 @@
         {% for rank in ranks %}
         {% if thing.rank_id == rank.id %}
         <td>{{rank.name}}</td>
+        
+        {% else %}
+        <td></td>
         {% endif %}
         {% endfor %}
         <td>
