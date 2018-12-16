@@ -12,6 +12,7 @@ Herokussa luotu tunnus:
 
 Omien tunnusten luonti toimii Herokussa
 
+[Työn rajoitteet, puuttuvat ominaisuudet, dokumentaation vastaavuus ja omaa pohdintaa](https://github.com/jusba/Muistilista/blob/master/documentation/sovellus.md)  
 [Käyttötapaukset](https://github.com/jusba/Muistilista/blob/master/documentation/user_storys.md)  
 [Tietokantakaaviohahmotelma](https://github.com/jusba/Muistilista/blob/master/documentation/database_schema.md)  
 [Ajankäyttö](https://github.com/jusba/Muistilista/blob/master/documentation/Time%20usage.md)  
