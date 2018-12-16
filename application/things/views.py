@@ -113,8 +113,10 @@ def thing_change_description(thing_id):
 @app.route("/things/<thing_id>/",methods=["GET", "POST"])
 @login_required
 def thing_delete(thing_id):
-    Thing.query.filter(Thing.id == thing_id).delete()
     ThingTheme.query.filter(ThingTheme.thing_id == thing_id).delete()
+    db.session().commit()
+    Thing.query.filter(Thing.id == thing_id).delete()
+    
     db.session().commit()
     return redirect(url_for("things_index")) 
 #Showing one thing
