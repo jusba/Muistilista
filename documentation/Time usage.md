@@ -1,5 +1,7 @@
 # työaikakirjanpito
 
+#### Kokonaisaika 64h (päivitetty 16.12.2018)
+
 | päivä | aika | mitä tein  |
 | :----:|:-----| :-----|
 | 1.11.18|2h|Git repon luontia ja materiaaleihin(flaski demo) tutustumista, sekä readmin alustus|
@@ -15,3 +17,4 @@
 |1.12.18|7h|templatejen muokkausta, ulkoasun parantamista, rankin muokkaus mahdollista, rank näkyy listauksessa ja tarkastelussa, alustavat käyttö ja asennusohjeet |
 |7.12.18|3h|Validointi vihdoin toimii|
 |15.12.2018|10h|Teemat, niiden linkitys muistettaviin välitaululla, selectmultiplefield, crud päivitystä, yhteehvetokyselyitä, heroku tietokannan resetointi, yleisilmeen kohtentamista.|
+|16.12.2018|8h|Validoinnin korjaus, crudin korjaus, dokumentaation päivitystä, tietokantaongelmia korjattu, ulkonäköongelmia korjattu, valmistelu loppupalautukseen|
