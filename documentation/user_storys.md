@@ -1,5 +1,7 @@
 ## Käyttäjätarinoita
 
+Sovelluksessa on tällä hetkellä vain yhdenlaisia käyttäjiä, eli peruskäyttäjiä.
+
 #### Käyttäjä 1.
 Peruskäyttäjänä haluan sovelluksen, jonka avulla voin muistaa asioita, sillä minulla on usein liikaa muistettavia asioita omaan mieleeni.
 
